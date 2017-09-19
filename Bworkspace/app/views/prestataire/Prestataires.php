@@ -1,0 +1,142 @@
+<div class="container">
+
+    <!-- Page Heading -->
+    <h1 class="my-4">Bienvenue sur BworkSpace -
+        <small>Les Prestataires</small>
+    </h1>
+    <p>
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#bof" aria-expanded="false" aria-controls="collapseExample">
+            + Domaines
+        </button>
+    </p>
+    <div class="collapse" id="bof" style=" background-color:black; border-radius:10px; padding:20px;">
+
+        <input type="checkbox" id="" name="" Value="Programmation"> Programmation
+        </br>		
+        <input type="checkbox" id="" name="" Value="Commerciale" checked> Commerciale
+        </br></br>
+        <button class="btn btn-primary" type="button">Trier</button>
+        </br>
+    </div>
+    </br>
+
+
+    <div class="container marketing">
+
+        <style>
+            .img-circle{border-radius:50%}hr{margin-top:20px;margin-bottom:20px;border:0;border-top:1px solid #eee}
+        </style>
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+
+            <div class="col-lg-3 col-sm-6">
+                <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                <h2>Dossou Kyriel</h2> 
+                <p>bla bal bala</p>
+                <p><a class="btn btn-primary" href="#" data-toggle="modal" data-target="#exampleModal" role="button">Voir details &raquo;</a></p>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Informations</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                bla bal balabla bal balabla bal balabla bal balabla bal balabla bal bala ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div><!-- /.col-lg-4 -->
+
+            <div class="col-lg-3 col-sm-6">
+                <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                <h2>Dossou Kyriel</h2> 
+                <p>bla bal bala</p>
+                <p><a class="btn btn-primary" href="#" data-toggle="modal" data-target="#exampleModal" role="button">Voir details &raquo;</a></p>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Informations</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                bla bal balabla bal balabla bal balabla bal balabla bal balabla bal bala ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div><!-- /.col-lg-4 -->
+
+            <div class="col-lg-3 col-sm-6">
+                <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                <h2>Dossou Kyriel</h2> 
+                <p>bla bal bala</p>
+                <p><a class="btn btn-primary" href="#" data-toggle="modal" data-target="#exampleModal" role="button">Voir details &raquo;</a></p>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Informations</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                bla bal balabla bal balabla bal balabla bal balabla bal balabla bal bala ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div><!-- /.col-lg-4 -->
+
+            <div class="col-lg-3 col-sm-6">
+                <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                <h2>Dossou Kyriel</h2> 
+                <p>bla bal bala</p>
+                <p><a class="btn btn-primary" href="#" data-toggle="modal" data-target="#exampleModal" role="button">Voir details &raquo;</a></p>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Informations</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                bla bal balabla bal balabla bal balabla bal balabla bal balabla bal bala ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+    </div>
+</div>

@@ -1,0 +1,89 @@
+<style>
+    body {
+        color:white;
+        text-align:center;
+        padding-top: 100px;
+        padding-bottom: 40px;
+        background-image:url('img/th210NKBIO.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;  
+    }
+
+    .form-signin {
+        max-width: 330px;
+        padding: 15px;
+        margin: 0 auto;
+    }
+    .form-signin .form-signin-heading,
+    .form-signin .checkbox {
+        margin-bottom: 10px;
+    }
+    .form-signin .checkbox {
+        font-weight: normal;
+    }
+    .form-signin .form-control {
+        position: relative;
+        height: auto;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 10px;
+        font-size: 16px;
+    }
+    .form-signin .form-control:focus {
+        z-index: 2;
+    }
+    .form-signin input[type="email"] {
+        margin-bottom: -1px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    .form-signin input[type="password"] {
+        margin-bottom: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+</style>
+
+<div class="container">
+    <form class="form-signin">
+        <h2 class="form-signin-heading">Mise à jour</h2>
+        <input type="Email" id="email" class="form-control" placeholder="votre email" required>
+        <input type="password" id="inputPassword" class="form-control" placeholder=" votre password" required>
+
+        <input type="file" id="file" class="form-control" placeholder="Photo de profil" required>
+        <input type="text" id="text" class="form-control" placeholder="Nom de l'entreprise" required>
+
+        <br/>       <h2 class="form-signin-heading">Secteur d'activité</h2>
+        <table>
+
+            <td>
+                <input type="checkbox" name="" value="programation" >
+            <th>Programation</th>
+            </td>
+
+            <td>
+                <input type="checkbox" name="" value="programation" >
+            <th>Programation</th>
+            </td>
+
+            <td>
+                <input type="checkbox" name="" value="programation" >
+            <th>Programation</th>
+            </td>
+
+        </table>
+        <br/>
+
+        <textarea type="" id="description" class="form-control" placeholder="Description de l'entreprise "></textarea>
+
+        <textarea type="" id="historique" class="form-control" placeholder="historique de l'entreprise "></textarea>
+
+        <br/>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" autofocus>
+        <input type="text" id="siteweb" class="form-control" placeholder="lien vers le site de l'entreprise">
+        <input type="text" id="siteweb" class="form-control" placeholder="Telephone">
+        <br/>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Modifier</button>
+    </form>
+</div>
