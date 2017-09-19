@@ -42,25 +42,25 @@
         <ul class="navbar-nav ml-auto">
 
             <li class="nav-item navbar-right active">
-                <a class="nav-link" href="index/index">Entreprises</a>
+                <a class="nav-link" href="index">Entreprises</a>
             </li>
 
             <li class="nav-item navbar-right active">
-                <a class="nav-link" href="particulier/particulier">Particuliers</a>
+                <a class="nav-link" href="<?= $this->url->get("particulier/particulier")?>">Particuliers</a>
             </li>
 
             <li class="nav-item navbar-right active">
-                <a class="nav-link" href="offre/offre">Offres d'emploi</a>
+                <a class="nav-link" href="<?= $this->url->get("offre/offre")?>">Offres d'emploi</a>
             </li>
 
             <li class="nav-item navbar-right active">
-                <a class="nav-link" href="job/job">Job de vacances</a>
+                <a class="nav-link" href="<?= $this->url->get("job/job")?>">Job de vacances</a>
             </li>
 
             <li class="nav-item navbar-right active">
             </li>
             <li class="nav-item">
-                <a class="btn btn-info" href="entreprise/landing-page" role="button">Profil</a>
+                <a class="btn btn-info" href="<?= $this->url->get("entreprise/landing-page")?>" role="button">Profil</a>
             </li>
 
             <li class="nav-item">
