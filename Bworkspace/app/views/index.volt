@@ -41,6 +41,7 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
 
+
             <li class="nav-item navbar-right active">
                 <a class="nav-link" href="index">Entreprises</a>
             </li>
