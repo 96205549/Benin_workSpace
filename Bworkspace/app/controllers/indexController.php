@@ -8,5 +8,9 @@ class IndexController extends Controller
 
     }
 
+    public function loginAction()
+    {
+
+    }
 }
 
