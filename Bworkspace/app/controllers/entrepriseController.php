@@ -21,4 +21,8 @@ class entrepriseController extends controller {
     public function entrepriseAction() {
         
     }
+    
+    public function profilentreAction() {
+        
+    }
 }
