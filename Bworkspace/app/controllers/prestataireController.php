@@ -23,4 +23,13 @@ class prestataireController extends Controller
     public function prestataireAction() {
         
     }
+    public function inscriptionPrestAction() {
+        
+    }
+     public function profilAction() {
+        
+    }
+     public function loginAction() {
+        //controle puis redirection vers le profil
+    }
 }

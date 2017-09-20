@@ -37,13 +37,13 @@
 <br/>
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="index/index">Bworkspace</a>
+    <a class="navbar-brand" href="<?= $this->url->get("index")?>">Bworkspace</a>
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
 
 
             <li class="nav-item navbar-right active">
-                <a class="nav-link" href="index">Entreprises</a>
+                <a class="nav-link" href="<?= $this->url->get("index")?>">Entreprises</a>
             </li>
 
             <li class="nav-item navbar-right active">

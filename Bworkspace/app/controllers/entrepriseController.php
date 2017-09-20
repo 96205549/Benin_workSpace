@@ -21,4 +21,14 @@ class entrepriseController extends controller {
     public function entrepriseAction() {
         
     }
+    public function inscriptionEntAction() {
+        
+    }
+    public function profilAction() {
+        
+    }
+     public function loginAction() {
+        //controle puis redirection vers le profil
+
+    }
 }

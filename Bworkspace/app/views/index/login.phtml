@@ -67,24 +67,28 @@
             $type = ($_POST['type']);
 
             if ($type == "Entreprise") {
-                echo "examples/landing-page.html";
-            } elseif ($type == "Particulier") {
-                echo "examples/profile-page.html";
-            } elseif ($type == "Prestataire") {
-                echo "homePrest.php";
-            }
-            ?> ">Se connecter</a></button>
-        <p><a class="btn btn-default" href=" <?php
-            $type = ($_POST['type']);
+                ?>
 
-            if ($type == "Entreprise") {
-                echo "inscriptionEnt.html";
-            } elseif ($type == "Particulier") {
-                echo "inscriptionPers.html";
-            } elseif ($type == "Prestataire") {
-                echo "inscriptionPrest.php";
-            }
-            ?> " >Je veux m'inscrire
+                                                                              <?= $this->url->get("entreprise/profil") ?>
+                                                                          <?php } elseif ($type == "Particulier") { ?>
+                                                                              <?= $this->url->get("particulier/profil") ?>
+                                                                          <?php } elseif ($type == "Prestataire") { ?>
+                                                                              <?= $this->url->get("prestataire/profil") ?> 
+
+                                                                          <?php } ?>">Se connecter</a></button>
+        <p><a class="btn btn-default" href=" <?php
+              $type = ($_POST['type']);
+
+
+              if ($type == "Entreprise") {
+                  ?>
+                  <?= $this->url->get("entreprise/inscriptionEnt") ?>
+              <?php } elseif ($type == "Particulier") { ?>
+                  <?= $this->url->get("particulier/inscriptionPers") ?>
+              <?php } elseif ($type == "Prestataire") { ?>
+                  <?= $this->url->get("prestataire/inscriptionPrest") ?>
+              <?php }
+              ?> " >Je veux m'inscrire
             </a></p>
     </form>
 </div> <!-- /container -->
