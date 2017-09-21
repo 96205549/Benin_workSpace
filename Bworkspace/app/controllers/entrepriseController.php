@@ -16,11 +16,12 @@ class entrepriseController extends controller {
     //put your code here
     public function indexAction()
     {
-
+        
     }
     public function entrepriseAction() {
         
     }
+
     public function inscriptionEntAction() {
             
     }

@@ -110,7 +110,7 @@
   </div>
 
         </div>
-            {{ content() }}
+            <?= $this->getContent() ?>
         </div>
 <footer>
       <div class="container">
