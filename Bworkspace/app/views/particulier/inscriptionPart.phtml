@@ -3,7 +3,6 @@
     body {
 
         padding-bottom: 40px;
-        color:white;
         text-align:center;
         padding-bottom: 40px;
         background-image:url('img/th210NKBIO.jpg');
@@ -49,20 +48,18 @@
 
 </style>
 
-
 <div class="container">
-
-    <form class="form-signin" action="" method="post">
+<p><?php $this->flashSession->output() ?></p>
+    <form class="form-signin" action=" <?= $this->url->get("particulier/ajout")?>" method="post">
         <h3 class="form-signin-heading">Inscription Particulier</h3>
-
-        <input type="text" id="" class="form-control" placeholder="Nom" required autofocus>
-        <input type="text" id="" class="form-control" placeholder="Prenom" required autofocus>
+        <input type="text" name="nom" class="form-control" placeholder="Nom" required autofocus>
+        <input type="text" name="prenom" class="form-control" placeholder="Prenom" required autofocus>
         <br/>
-        <input type="email" id="" class="form-control" placeholder="Email" required autofocus>
-        <input type="number" id="" class="form-control" placeholder="Telephone" required autofocus>
+        <input type="email" name="mail" class="form-control" placeholder="Email" required autofocus>
+        <input type="number" name="telephone" class="form-control" placeholder="Telephone" required autofocus>
         <br/>
         <H5>Votre Region</H5>      
-        <Select name="Departement">
+        <Select name="region">
             <option>Atlantique</option>
             <option>Litoral</option>
             <option>Borgou</option>
@@ -78,10 +75,10 @@
         </Select>
         <br/>
         <br/>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Confirmer mot de passe" required>
+        <input type="password" name="password1" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
+        <input type="password" name="password2" id="inputPassword" class="form-control" placeholder="Confirmer mot de passe" required>
         <br/>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Suivant</button>
     </form>
-
+    
 </div>
