@@ -46,48 +46,55 @@
 </style>
 
 <div class="container">
-    <form class="form-signin" action="" method="post">
-        <h2 class="form-signin-heading">
-            <?php
-            $type = ($_POST['type']);
-            //echo $type;
+    <form class="form-signin" action="  <?php
+    if ($this->request->isPost()) {
+        $type = $this->request->getPost("type");
+
+
+        if ($type == "Entreprise") {
             ?>
+
+                  <?= $this->url->get("entreprise/login") ?>
+              <?php } elseif ($type == "Particulier") { ?>
+                  <?= $this->url->get("particulier/login") ?>
+              <?php } elseif ($type == "Prestataire") { ?>
+                  <?= $this->url->get("prestataire/login") ?> 
+
+                  <?php
+              }
+          } else {
+              ?>
+              <?= $this->url->get("index") ?>
+          <?php } ?>" method="post">
+        <h2 class="form-signin-heading">
+
         </h2>
-        <label for="inputEmail" class="sr-only">Nom d'utilisateur</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputEmail" class="sr-only">Mail</label>
+        <input type="email" id="inputEmail" class="form-control"  name="mail" placeholder="Email address" required autofocus>
         <br/>
         <label for="inputPassword" class="sr-only">Mot de Passe</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
         <div class="checkbox">
             <label>
                 <input type="checkbox" value="remember-me"> Remember me
             </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit"><a href="  <?php
-            $type = ($_POST['type']);
-
-            if ($type == "Entreprise") {
-                ?>
-
-                                                                              <?= $this->url->get("entreprise/profil") ?>
-                                                                          <?php } elseif ($type == "Particulier") { ?>
-                                                                              <?= $this->url->get("particulier/profil") ?>
-                                                                          <?php } elseif ($type == "Prestataire") { ?>
-                                                                              <?= $this->url->get("prestataire/profil") ?> 
-
-                                                                          <?php } ?>">Se connecter</a></button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">se connecter</button>
         <p><a class="btn btn-default" href=" <?php
-              $type = ($_POST['type']);
+              if ($this->request->isPost()) {
+                  $type = ($_POST['type']);
 
 
-              if ($type == "Entreprise") {
-                  ?>
-                  <?= $this->url->get("entreprise/inscriptionEnt") ?>
-              <?php } elseif ($type == "Particulier") { ?>
-                  <?= $this->url->get("particulier/inscriptionPers") ?>
-              <?php } elseif ($type == "Prestataire") { ?>
-                  <?= $this->url->get("prestataire/inscriptionPrest") ?>
-              <?php }
+                  if ($type == "Entreprise") {
+                      ?>
+                      <?= $this->url->get("entreprise/inscriptionEnt") ?>
+                  <?php } elseif ($type == "Particulier") { ?>
+                      <?= $this->url->get("particulier/inscriptionPers") ?>
+                  <?php } elseif ($type == "Prestataire") { ?>
+                      <?= $this->url->get("prestataire/inscriptionPrest") ?>
+                      <?php
+                  }
+              }
               ?> " >Je veux m'inscrire
             </a></p>
     </form>
