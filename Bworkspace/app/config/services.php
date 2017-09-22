@@ -1,3 +1,4 @@
+
 <?php
 
 use Phalcon\Mvc\View;
@@ -110,15 +111,13 @@ $di->setShared('session', function () {
 
     return $session;
 });
-<<<<<<< HEAD
+
 
 $di->set('uploadcv', function()  {
     $config = $this->getConfig();
     $uploadcv = $config->application->uploadCvDir;
     return $uploadcv;
 });
-=======
->>>>>>> master
 $di->set('uploadEnt', function()  {
     $config = $this->getConfig();
     $uploadEnt = $config->application->uploadentDir;
