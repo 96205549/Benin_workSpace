@@ -44,7 +44,11 @@
         border-top-right-radius: 0;
     }
 </style>
-
+<?php
+    if ($this->session->has('id_ent'))  {
+        
+    
+        ?>
 <div class="container">
     <P><?php $this->flashSession->output() ?></p>
     <?php foreach ($tab1 as $value1): ?>
@@ -105,3 +109,11 @@
     </form>
     <?php endforeach; ?>
 </div>
+<?php
+    }else{
+        $this->flashSession->error("Connecter vous");
+                return $this->response->redirect($this->url->getBaseUri() . "index", true);
+    }
+        
+    
+        ?>

@@ -220,5 +220,16 @@ class prestataireController extends Controller {
             }
         }
     }
+    public function deconnectionAction() {
+
+        $this->session->remove('id_prest');
+        
+        // die( var_dump($_SESSION['id']));
+// Close session
+// 
+// ...
+// A HTTP Redirect
+        return $this->response->redirect($this->url->getBaseUri() . "index", true);
+    }
 
 }
