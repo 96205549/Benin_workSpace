@@ -1,6 +1,6 @@
 <style>
     body {
-        color:white;
+        
         text-align:center;
         padding-top: 100px;
         padding-bottom: 40px;
@@ -46,44 +46,62 @@
 </style>
 
 <div class="container">
-    <form class="form-signin">
-        <h2 class="form-signin-heading">Mise à jour</h2>
-        <input type="Email" id="email" class="form-control" placeholder="votre email" required>
-        <input type="password" id="inputPassword" class="form-control" placeholder=" votre password" required>
+    <P><?php $this->flashSession->output() ?></p>
+    <?php foreach ($tab1 as $value1): ?>
 
-        <input type="file" id="file" class="form-control" placeholder="Photo de profil" required>
-        <input type="text" id="text" class="form-control" placeholder="Nom de l'entreprise" required>
+    <form class="form-signin" method="post" action="<?= $this->url->get("entreprise/updateEnt")?>" enctype="multipart/form-data">
+        <h2 class="form-signin-heading">Mise à jour</h2>
+        
+        <input type="Email" id="email" class="form-control" name="mail" value=<?=$value1->getMail()?>  required>
+        <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Entrez votre mot de passe Pour verification" required>
+
+        <input type="file" id="file" class="form-control" name="photo" placeholder="logo" required>
+        <input type="text" id="text" class="form-control" name="nom" value=<?=$value1->getNom()?> required>
 
         <br/>       <h2 class="form-signin-heading">Secteur d'activité</h2>
+           
+
         <table>
+            <?php
+            foreach ($tab as $value):
+                ?>    
 
-            <td>
-                <input type="checkbox" name="" value="programation" >
-            <th>Programation</th>
-            </td>
+                <td>
 
-            <td>
-                <input type="checkbox" name="" value="programation" >
-            <th>Programation</th>
-            </td>
 
-            <td>
-                <input type="checkbox" name="" value="programation" >
-            <th>Programation</th>
-            </td>
+                    <input type="checkbox" name="categori[]" value="<?=$value->getId_cat()?>">
+                <th><?=$value->getNom()?></th>
+                </td>
 
+                <?php
+            endforeach;
+            ?>   
         </table>
-        <br/>
+        
 
-        <textarea type="" id="description" class="form-control" placeholder="Description de l'entreprise "></textarea>
-
-        <textarea type="" id="historique" class="form-control" placeholder="historique de l'entreprise "></textarea>
-
-        <br/>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" autofocus>
-        <input type="text" id="siteweb" class="form-control" placeholder="lien vers le site de l'entreprise">
-        <input type="text" id="siteweb" class="form-control" placeholder="Telephone">
+        <br/>  
+<H5>Departement</H5>      
+        <Select name="region">
+            <option>Atlantique</option>
+            <option>Litoral</option>
+            <option>Borgou</option>
+            <option>Alibori</option>
+            <option>Attacora</option>
+            <option>Donga</option>
+            <option>Mono</option>
+            <option>Couffo</option>
+            <option>Collines</option>
+            <option>Zou</option>
+            <option>Oueme</option>
+            <option>Plateau</option>
+        </Select>
+        <br/><br/>        
+        <input type="text" id="inputEmail" class="form-control" name="adresse" value=<?=$value1->getAdresse()?>autofocus>
+        <input type="text" id="siteweb" class="form-control" name="siteweb" placeholder="lien vers le site de l'entreprise">
+        <input type="text" class="form-control" name="telephone"value=<?=$value1->getTelephone()?>>
+        <textarea type="" id="description" class="form-control" name="description" ></textarea>
         <br/>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Modifier</button>
     </form>
+    <?php endforeach; ?>
 </div>

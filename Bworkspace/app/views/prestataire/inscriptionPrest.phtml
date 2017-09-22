@@ -2,7 +2,6 @@
 
     body {
 
-        color:white;
         text-align:center;
         padding-bottom: 40px;
         background-image:url('img/th210NKBIO.jpg');
@@ -53,36 +52,35 @@
 
 
 <div class="container">
+    <P><?php $this->flashSession->output() ?></p>
+        <form class="form-signin" method="post" action="<?= $this->url->get("prestataire/inscriptionPrest")?>">
+        <h3 class="form-signin-heading">Inscription Prestataire</h3> 
 
-    <form class="form-signin" method="post" action="">
-        <h3 class="form-signin-heading">Inscription Entreprise</h3> 
-
-        <input type="text" class="form-control" placeholder="Nom de l'entreprise" required autofocus>
+        <input type="text" class="form-control"  name="nom" placeholder="Nom de l'entreprise" required autofocus>
         <br/>	
         <hr/>
         <H5>Secteur d'activite</H5>      
 
         <table>
+            <?php
+            foreach ($tab as $value):
+                ?>    
 
-            <td>
-                <input type="checkbox" name="" value="programation">
-                <th>Programation</th>
-            </td>
+                <td>
 
-            <td>
-                <input type="checkbox" name="" value="programation">
-                <th>Programation</th>
-            </td>
 
-            <td>
-                <input type="checkbox" name="" value="programation">
-                <th>Programation</th>
-            </td>
+                    <input type="checkbox" name="categori[]" value="<?=$value->getId_cat()?>">
+                <th><?=$value->getNom()?></th>
+                </td>
+
+                <?php
+            endforeach;
+            ?>   
         </table>
 
         <br/>   	
         <H5>Departement</H5>      
-        <Select name="Departement">
+        <Select name="region">
             <option>Atlantique</option>
             <option>Litoral</option>
             <option>Borgou</option>
@@ -97,13 +95,13 @@
             <option>Plateau</option>
         </Select>
         <br/><br/>
-        <input type="Email" class="form-control" placeholder="Adresse E-mail" required autofocus>
+        <input type="Email" class="form-control" name="mail" placeholder="Adresse E-mail" required autofocus>
 
-        <input type="text" class="form-control" placeholder="Adresse Siege" required autofocus>
-        <input type="text" class="form-control" placeholder="Numero de telephone" required autofocus>
+        <input type="text" class="form-control" name="adresse" placeholder="Adresse Siege" required autofocus>
+        <input type="text" class="form-control"  name="telephone" placeholder="Numero de telephone" required autofocus>
         <br/>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Confirmer le mot de passe" required>
+        <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Mot de passe" required>
+        <input type="password" id="inputPassword" class="form-control"  name="cpassword" placeholder="Confirmer le mot de passe" required>
 
         <br/>
 

@@ -13,7 +13,7 @@
  */
 use Phalcon\Mvc\Model;
 
-class categoriser extends Model {
+class categoriser_prest extends Model {
 
     //put your code here
     private $id;

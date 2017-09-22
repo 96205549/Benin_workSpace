@@ -116,3 +116,13 @@ $di->set('uploadcv', function()  {
     $uploadcv = $config->application->uploadCvDir;
     return $uploadcv;
 });
+$di->set('uploadEnt', function()  {
+    $config = $this->getConfig();
+    $uploadEnt = $config->application->uploadentDir;
+    return $uploadEnt;
+});
+$di->set('uploadprest', function()  {
+    $config = $this->getConfig();
+    $uploadprest = $config->application->uploadprestDir;
+    return $uploadprest;
+});
