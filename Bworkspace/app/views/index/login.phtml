@@ -1,6 +1,5 @@
 <style>
     body {
-        color:white;
         text-align:center;
         padding-top: 100px;
         padding-bottom: 40px;
@@ -89,13 +88,17 @@
                       ?>
                       <?= $this->url->get("entreprise/inscriptionEnt") ?>
                   <?php } elseif ($type == "Particulier") { ?>
-                      <?= $this->url->get("particulier/inscriptionPers") ?>
+
+                      <?= $this->url->get("particulier/inscriptionPart") ?>
                   <?php } elseif ($type == "Prestataire") { ?>
                       <?= $this->url->get("prestataire/inscriptionPrest") ?>
-                      <?php
+                  <?php
+
+
                   }
               }
               ?> " >Je veux m'inscrire
             </a></p>
     </form>
 </div> <!-- /container -->
+

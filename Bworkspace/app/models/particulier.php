@@ -19,14 +19,14 @@ class particulier extends Model {
     //put your code here
     private $id_part;
     private $nom;
-    private  $password;
+    private $password;
     private $telephone;
     private $cv;
     private $diplome;
     private $an;
     private $mail;
     private $profession;
-    private  $region;
+    private $region;
     function getId_part() {
         return $this->id_part;
     }
