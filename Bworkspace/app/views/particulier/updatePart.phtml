@@ -1,7 +1,7 @@
 <div class="container">
     <style>
         body {
-            color:white;
+            background-color: #c2e5ff;
             text-align:center;
             padding-top: 100px;
             padding-bottom: 40px;
@@ -45,22 +45,40 @@
             border-top-right-radius: 0;
         }
     </style>
-    <form class="form-signin">
+    <form class="form-signin" action="<?= $this->url->get("particulier/updatePart")?>" method="post" enctype="multipart/form-data">
         <h2 class="form-signin-heading">Mise à jour</h2>
+        <div class="alert alert-dark" role="alert">Authentifier vous!!!</div>
+        <input type="email" name="mail" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
 
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
 
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-
-        <input type="file" id="inputEmail" class="form-control" placeholder="Photo" required autofocus>
-
-        <input type="text" id="inputEmail" class="form-control" placeholder="Nom" required autofocus>
-
-        <input type="text" id="inputEmail" class="form-control" placeholder="Prenom" required autofocus>
-
-        <input type="text" id="inputEmail" class="form-control" placeholder="Niveau d'etude" required autofocus>
-
-        <textarea type="" id="description" class="form-control" placeholder="Description de ma structure"></textarea>
+        <input type="text" name="nom" id="inputEmail" class="form-control" placeholder="Nom" >
+        <br>
+        <input type="text" name="prenom" id="inputEmail" class="form-control" placeholder="Prenom" >
+        <br>
+        <input type="text" name="diplome" id="inputEmail" class="form-control" placeholder="Niveau d'etude" >
+        <br>
+        <input type="text" name="an" id="inputEmail" class="form-control" placeholder="Année de naissance" >
+        <br>
+        <input type="text" name="profession" id="inputEmail" class="form-control" placeholder="Profession" >
+        <br>
+        <H5>Votre Region</H5>      
+        <Select name="region">
+            <option>Atlantique</option>
+            <option>Litoral</option>
+            <option>Borgou</option>
+            <option>Alibori</option>
+            <option>Attacora</option>
+            <option>Donga</option>
+            <option>Mono</option>
+            <option>Couffo</option>
+            <option>Collines</option>
+            <option>Zou</option>
+            <option>Oueme</option>
+            <option>Plateau</option>
+        </Select>
+        <br/>
+        <input type="file" name="cv" id="inputEmail" class="form-control" >
         <br/>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Modifier</button>
     </form>

@@ -22,4 +22,7 @@ class offreController extends controller {
     public function offreAction() {
         
     }
+    public function ajoutoffreAction() {
+        
+    }
 }
