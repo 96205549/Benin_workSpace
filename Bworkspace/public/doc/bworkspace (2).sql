@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 21 Septembre 2017 à 17:41
+-- Généré le :  Ven 22 Septembre 2017 à 19:02
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -162,7 +162,14 @@ CREATE TABLE IF NOT EXISTS `jobvacance` (
   `expiration` varchar(45) NOT NULL,
   PRIMARY KEY (`id_job`),
   KEY `id_ent` (`id_ent`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Contenu de la table `jobvacance`
+--
+
+INSERT INTO `jobvacance` (`id_job`, `id_ent`, `poste`, `diplome`, `duree`, `expiration`) VALUES
+(1, 18, 'developeur', 'master', '5ans', '1506549600');
 
 -- --------------------------------------------------------
 
@@ -173,13 +180,22 @@ CREATE TABLE IF NOT EXISTS `jobvacance` (
 CREATE TABLE IF NOT EXISTS `offre` (
   `id_of` int(11) NOT NULL AUTO_INCREMENT,
   `id_ent` int(11) NOT NULL,
-  `poste` varchar(45) NOT NULL,
-  `diplome` varchar(45) NOT NULL,
-  `duree` varchar(45) NOT NULL,
-  `expiration` varchar(45) NOT NULL,
+  `poste` varchar(45) DEFAULT NULL,
+  `diplome` varchar(45) DEFAULT NULL,
+  `duree` varchar(45) DEFAULT NULL,
+  `expiration` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id_of`),
   KEY `id_ent` (`id_ent`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Contenu de la table `offre`
+--
+
+INSERT INTO `offre` (`id_of`, `id_ent`, `poste`, `diplome`, `duree`, `expiration`) VALUES
+(2, 18, 'developeur', 'master', '5ans', 1505512800),
+(3, 18, 'manequin', 'master', '5ans', 1505512800),
+(4, 18, 'manequin', 'master', '5ans', 1505512800);
 
 -- --------------------------------------------------------
 
