@@ -223,7 +223,7 @@ class prestataireController extends Controller {
     public function deconnectionAction() {
 
         $this->session->remove('id_prest');
-        
+        $this->session->destroy();
         // die( var_dump($_SESSION['id']));
 // Close session
 // 

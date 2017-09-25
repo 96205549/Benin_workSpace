@@ -225,7 +225,7 @@ class entrepriseController extends controller {
     public function deconnectionAction() {
 
         $this->session->remove('id_ent');
-
+        $this->session->destroy();
         // die( var_dump($_SESSION['id']));
 // Close session
 // 
