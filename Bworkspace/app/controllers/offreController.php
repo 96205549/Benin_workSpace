@@ -49,15 +49,15 @@ class offreController extends controller {
                 //  die(var_dump($var));
                 if ($var) {
 
-                    $this->flashSession->success("Enregistrement effectue avec sucess");
+                    $this->flash->success("Enregistrement effectue avec sucess");
                     return $this->response->redirect($this->url->getBaseUri() . "offre/delete", true);
                 } else {
-                    $this->flashSession->error("Echec d'enregistrement");
+                    $this->flash->error("Echec d'enregistrement");
                     return $this->response->redirect($this->url->getBaseUri() . "offre/delete", true);
                 }
             }
         } else {
-            $this->flashSession->error("Connecter vous");
+            $this->flash->error("Connecter vous");
             return $this->response->redirect($this->url->getBaseUri() . "index", true);
         }
     }
@@ -75,10 +75,10 @@ class offreController extends controller {
                 $req->delete();
             }
             if ($req) {
-                $this->flashSession->success("Supression effectue avec sucess");
+                $this->flash->success("Supression effectue avec sucess");
                 return $this->response->redirect( $this->url->getBaseUri()."offre/delete",true);
             } else {
-                $this->flashSession->error("Echec de supression");
+                $this->flash->error("Echec de supression");
                 return $this->response->redirect( $this->url->getBaseUri()."offre/delete",true);
             }
         }
@@ -91,10 +91,10 @@ class offreController extends controller {
                 $req->delete();
             
             if ($req) {
-                $this->flashSession->success("Supression effectue avec sucess");
+                $this->flash->success("Supression effectue avec sucess");
                 return $this->response->redirect( $this->url->getBaseUri()."offre/delete",true);
             } else {
-                $this->flashSession->error("Echec de supression");
+                $this->flash->error("Echec de supression");
                 return $this->response->redirect( $this->url->getBaseUri()."offre/delete",true);
             }
         }

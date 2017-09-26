@@ -143,7 +143,7 @@
 <script src="../assets/js/now-ui-kit.js?v=1.1.0" type="text/javascript"></script>
 <?php
     }else{
-        $this->flashSession->error("Connecter vous");
+        $this->flash->error("Connecter vous");
                 return $this->response->redirect($this->url->getBaseUri() . "index", true);
     }
         
