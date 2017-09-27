@@ -12,6 +12,7 @@
         <link href="<?= $this->url->getBaseURI ();?>public/css/now-ui-kit.css?v=1.1.0" rel="stylesheet">
         <link href="<?= $this->url->getBaseURI ();?>public/css/demo.css" rel="stylesheet">
 
+
     </head>
     <body>
     <style>
@@ -36,7 +37,7 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item navbar-right active">
-                <a class="nav-link" href="<?= $this->url->get("index")?>">Entreprises</a>
+                <a class="nav-link" href="<?= $this->url->get("")?>">Entreprises</a>
             </li>
 
             <li class="nav-item navbar-right active">
