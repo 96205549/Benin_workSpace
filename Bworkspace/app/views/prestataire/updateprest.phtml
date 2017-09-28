@@ -44,7 +44,11 @@
         border-top-right-radius: 0;
     }
 </style>
-
+<?php
+    if ($this->session->has('id_prest'))  {
+        
+    
+        ?>
 <div class="container">
     <P><?php $this->flashSession->output() 
             ?></p>
@@ -106,3 +110,11 @@
     </form>
     <?php endforeach; ?>
 </div>
+<?php
+    }else{
+        $this->flashSession->error("Connecter vous");
+                return $this->response->redirect($this->url->getBaseUri() . "index", true);
+    }
+        
+    
+        ?>

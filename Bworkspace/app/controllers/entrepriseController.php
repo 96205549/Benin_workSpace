@@ -130,7 +130,7 @@ class entrepriseController extends controller {
         if ($this->session->has('id_ent')) {
 
             $id = $this->session->get('id_ent');
-           // die(var_dump($id));
+            // die(var_dump($id));
             $req1 = entreprise::findById_ent($id);
             $this->view->tab1 = $req1;
         }
@@ -177,7 +177,6 @@ class entrepriseController extends controller {
                         }
                         $logo = $name_file;
                         //die(var_dump($logo));
-
                         // die(var_dump($type));
                         // Move the file into the application
                     }
@@ -198,15 +197,14 @@ class entrepriseController extends controller {
                                     "id_cat" => $value
                                 ]
                     ]);
-                    if($q==NULL)
-                    {
+                    if ($q == NULL) {
                         $cat = new categoriser();
-                            $cat->setId_cat($value);
+                        $cat->setId_cat($value);
 
-                            $cat->setId_ent($id);
+                        $cat->setId_ent($id);
 
-                            //die(var_dump($cat));
-                            $var = $cat->save();
+                        //die(var_dump($cat));
+                        $var = $cat->save();
                     }
                 }
 
@@ -217,13 +215,25 @@ class entrepriseController extends controller {
                     $this->flashSession->error("Echec de Modification");
                     return $this->response->redirect($this->url->getBaseUri() . "entreprise/updateEnt", true);
                 }
+            } else {
+                $this->flashSession->error("Echec d'authentification");
+                return $this->response->redirect($this->url->getBaseUri() . "entreprise/updateEnt", true);
             }
-         else {
-            $this->flashSession->error("Echec d'authentification");
-            return $this->response->redirect($this->url->getBaseUri() . "entreprise/updateEnt", true);
         }
     }
+
+    public function deconnectionAction() {
+
+        $this->session->remove('id_ent');
+
+        // die( var_dump($_SESSION['id']));
+// Close session
+// 
+// ...
+// A HTTP Redirect
+        return $this->response->redirect($this->url->getBaseUri() . "index", true);
     }
-    
+
+   
 
 }

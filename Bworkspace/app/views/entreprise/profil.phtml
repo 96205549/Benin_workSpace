@@ -1,6 +1,10 @@
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-
+<?php
+    if ($this->session->has('id_ent'))  {
+        
+    
+        ?>
 <body class="landing-page sidebar-collapse">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-info fixed-top navbar-transparent " color-on-scroll="400">
@@ -33,8 +37,13 @@
 
 
                     <li class="nav-item">
-                        <a class="nav-link" rel="tooltip" title="Voir liste des offres soumissent" data-placement="bottom" href="" target="_blank">
+                        <a class="nav-link" rel="tooltip" title="Voir liste des offres soumissent" data-placement="bottom" href="<?= $this->url->get("offre/ajoutoffre")?>" target="_blank">
                             <p class="">Nos Offres d'emplois</p>
+                        </a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" rel="tooltip" title="Voir liste des offres soumissent" data-placement="bottom" href="<?= $this->url->get("job/ajoutjob")?>" target="_blank">
+                            <p class="">Nos Jobs De Vacance</p>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -44,7 +53,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.php">Deconnexion</a>
+                        <a class="nav-link" href="<?= $this->url->get("entreprise/deconnection")?>">Deconnexion</a>
                     </li>
 
                 </ul>
@@ -139,3 +148,11 @@
 <script src="../assets/js/now-ui-kit.js?v=1.1.0" type="text/javascript"></script>
 
 </html>
+<?php
+    }else{
+        $this->flashSession->error("Connecter vous");
+                return $this->response->redirect($this->url->getBaseUri() . "index", true);
+    }
+        
+    
+        ?>

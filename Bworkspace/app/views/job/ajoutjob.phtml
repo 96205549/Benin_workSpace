@@ -1,8 +1,8 @@
 
 <div class="container" >
     <P><?php $this->flashSession->output() ?></p>
-    <form method="post" action="<?= $this->url->get("offre/ajoutoffre")?>" class="form-signin">
-        <h3 class="form-signin-heading">Ajouter une offre</h3> 
+    <form method="post" action="<?= $this->url->get("job/ajoutjob")?>" class="form-signin">
+        <h3 class="form-signin-heading">Ajouter un job</h3> 
 
         <input type="text" name="poste" class="form-control" placeholder="Poste" required autofocus>
         <br/>	
@@ -10,7 +10,7 @@
         <br/>
         <input type="text" name="duree" class="form-control" placeholder="Durée d'emploiement" required autofocus>
         <br>
-        <h4>Date d'expiration de l'offre</h4>
+        <h4>Date d'expiration de l'job</h4>
         <div class="datepicker-container" class="section section-javascript" id="javascriptComponents">
             <div class="form-group">
                 <input type="date" class="form-control date-picker" value="10/05/2017" name="expiration"data-datepicker-color="primary">
