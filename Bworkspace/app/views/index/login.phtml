@@ -45,26 +45,7 @@
 </style>
 
 <div class="container">
-    <form class="form-signin" action="  <?php
-    if ($this->request->isPost()) {
-        $type = $this->request->getPost("type");
-
-
-        if ($type == "Entreprise") {
-            ?>
-
-                  <?= $this->url->get("entreprise/login") ?>
-              <?php } elseif ($type == "Particulier") { ?>
-                  <?= $this->url->get("particulier/login") ?>
-              <?php } elseif ($type == "Prestataire") { ?>
-                  <?= $this->url->get("prestataire/login") ?> 
-
-                  <?php
-              }
-          } else {
-              ?>
-              <?= $this->url->get("index") ?>
-          <?php } ?>" method="post">
+    <form class="form-signin" action="<?=$action?>" method="post">
         <h2 class="form-signin-heading">
 
         </h2>
@@ -79,22 +60,7 @@
             </label>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">se connecter</button>
-        <p><a class="btn btn-default" href=" <?php
-              if ($this->request->isPost()) {
-                  $type = ($_POST['type']);
-
-
-                  if ($type == "Entreprise") {
-                      ?>
-                      <?= $this->url->get("entreprise/inscriptionEnt") ?>
-                  <?php } elseif ($type == "Particulier") { ?>
-                      <?= $this->url->get("particulier/inscriptionPart") ?>
-                  <?php } elseif ($type == "Prestataire") { ?>
-                      <?= $this->url->get("prestataire/inscriptionPrest") ?>
-                  <?php
-                  }
-              }
-              ?> " >Je veux m'inscrire
+        <p><a class="btn btn-default" href="<?=$lien?>" >Je veux m'inscrire
             </a></p>
     </form>
 </div> <!-- /container -->

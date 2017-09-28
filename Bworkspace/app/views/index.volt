@@ -60,6 +60,9 @@
             <li class="nav-item">
                 <a class="btn btn-success" href="#" data-toggle="modal" data-target="#Modal" role="button">Connexion</a>
             </li>
+         </ul>
+         </div>
+        
             </nav>
             <form method="post" action="<?= $this->url->get("index/login")?>">
 <br>

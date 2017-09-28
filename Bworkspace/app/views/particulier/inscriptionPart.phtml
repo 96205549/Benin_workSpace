@@ -49,7 +49,7 @@
 </style>
 
 <div class="container">
-<p><?php $this->flashSession->output() ?></p>
+<p><?php $this->flash->output() ?></p>
     <form class="form-signin" action=" <?= $this->url->get("particulier/ajout")?>" method="post">
         <h3 class="form-signin-heading">Inscription Particulier</h3>
         <input type="text" name="nom" class="form-control" placeholder="Nom" required autofocus>

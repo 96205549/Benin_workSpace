@@ -78,18 +78,18 @@ class prestataireController extends Controller {
                             //die(var_dump($cat));
                             $var = $cat->save();
                         }
-                        $this->flashSession->success("Enregistrement effectue avec sucess");
+                        $this->flash->success("Enregistrement effectue avec sucess");
                         return $this->response->redirect($this->url->getBaseUri() . "index/index", true);
                     } else {
-                        $this->flashSession->error("Echec d'enregistrement");
+                        $this->flash->error("Echec d'enregistrement");
                         return $this->response->redirect($this->url->getBaseUri() . "prestataire/inscriptionPrest", true);
                     }
                 } else {
-                    $this->flashSession->error("Password non correct");
+                    $this->flash->error("Password non correct");
                     return $this->response->redirect($this->url->getBaseUri() . "prestataire/inscriptionPrest", true);
                 }
             } else {
-                $this->flashSession->error("Mail deja utilisé");
+                $this->flash->error("Mail deja utilisé");
                 return $this->response->redirect($this->url->getBaseUri() . "prestataire/inscriptionPrest", true);
             }
         }
@@ -117,7 +117,7 @@ class prestataireController extends Controller {
             //die(var_dump($_SESSION['id']));
             return $this->response->redirect($this->url->getBaseUri() . "prestataire/profil", true);
         } else {
-            $this->flashSession->error("Echec d'authentification");
+            $this->flash->error("Echec d'authentification");
             return $this->response->redirect($this->url->getBaseUri() . "index", true);
         }
 // The validation has failed
@@ -208,14 +208,14 @@ class prestataireController extends Controller {
                 }
 
                 if ($req) {
-                    $this->flashSession->success("Modification effectue avec sucess");
+                    $this->flash->success("Modification effectue avec sucess");
                     return $this->response->redirect($this->url->getBaseUri() . "prestataire/profil", true);
                 } else {
-                    $this->flashSession->error("Echec de Modification");
+                    $this->flash->error("Echec de Modification");
                     return $this->response->redirect($this->url->getBaseUri() . "prestataire/updateprest", true);
                 }
             } else {
-                $this->flashSession->error("Echec d'authentification");
+                $this->flash->error("Echec d'authentification");
                 return $this->response->redirect($this->url->getBaseUri() . "prestataire/updateprest", true);
             }
         }
@@ -223,7 +223,7 @@ class prestataireController extends Controller {
     public function deconnectionAction() {
 
         $this->session->remove('id_prest');
-        
+        $this->session->destroy();
         // die( var_dump($_SESSION['id']));
 // Close session
 // 

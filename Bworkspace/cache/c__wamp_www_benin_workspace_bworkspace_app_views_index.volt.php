@@ -15,10 +15,6 @@
     </head>
     <body>
     <style>
-    body {
-        background-image: url('img/.png');
-    }
-
     .marketing .col-lg-3 {
         margin-bottom: 20px;
         text-align: center;
@@ -34,15 +30,11 @@
     }
 
 </style>
-<br/>
-<br/>
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <a class="navbar-brand" href="<?= $this->url->get("index")?>">Bworkspace</a>
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-
-
             <li class="nav-item navbar-right active">
                 <a class="nav-link" href="<?= $this->url->get("index")?>">Entreprises</a>
             </li>
@@ -68,11 +60,13 @@
             <li class="nav-item">
                 <a class="btn btn-success" href="#" data-toggle="modal" data-target="#Modal" role="button">Connexion</a>
             </li>
+         </ul>
+         </div>
+        
             </nav>
-
             <form method="post" action="<?= $this->url->get("index/login")?>">
-                <p style="margin-left:1200px;"></p>
-
+<br>
+<br>   
                 <!-- Modal -->
                 <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">

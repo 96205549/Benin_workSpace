@@ -1,6 +1,6 @@
 
 <div class="container" >
-    <P><?php $this->flashSession->output() ?></p>
+    <P><?php $this->flash->output() ?></p>
     <form method="post" action="<?= $this->url->get("offre/ajoutoffre")?>" class="form-signin">
         <h3 class="form-signin-heading">Ajouter une offre</h3> 
 
@@ -19,4 +19,4 @@
         
         <button class="btn btn-lg btn-primary btn-block" type="submit">Suivant</button>
     </form>
-</div>
+    
