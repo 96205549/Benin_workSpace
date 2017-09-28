@@ -24,7 +24,8 @@ return new \Phalcon\Config([
         'pluginsDir'     => APP_PATH . '/plugins/',
         'libraryDir'     => APP_PATH . '/library/',
         'cacheDir'       => BASE_PATH . '/cache/',
-
+        'uploadentDir'       => BASE_PATH . '/public/uploadent/',
+        'uploadprestDir'       => BASE_PATH . '/public/uploadprest/',
 
         'uploadCvDir'    => BASE_PATH . '/public/uploadcv/',
         'uploadentDir'       => BASE_PATH . '/public/uploadent/',
