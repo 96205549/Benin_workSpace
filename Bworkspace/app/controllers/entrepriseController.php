@@ -19,9 +19,23 @@ class entrepriseController extends controller {
     public function indexAction() {
         
     }
+    
 
     public function entrepriseAction() {
         
+    }
+    public function profilAction() {
+        if ($this->session->has('id_ent') ){
+         $id = $this->session->get('id_ent');
+            // die(var_dump($id));
+            $req = entreprise::findById_ent($id);
+            $this->view->tab = $req;
+        
+        }elseif(isset($_GET["id"])){
+            $id = $_GET["id"];
+            // die(var_dump($id));
+            $req = entreprise::findById_ent($id);
+            $this->view->tab = $req;}
     }
 
     public function inscriptionEntAction() {
@@ -96,9 +110,7 @@ class entrepriseController extends controller {
         }
     }
 
-    public function profilAction() {
-        
-    }
+    
 
     public function loginAction() {
         $login = $this->request->getPost("mail");
@@ -175,7 +187,7 @@ class entrepriseController extends controller {
                         } elseif (!move_uploaded_file($temp_name, $this->uploadEnt . $name_file)) {
                             exit("Impossible de copier le fichier dans $content_dir");
                         }
-                        $logo = $name_file;
+                        $logo = "/public/uploadent/".$name_file;
                         //die(var_dump($logo));
                         // die(var_dump($type));
                         // Move the file into the application
