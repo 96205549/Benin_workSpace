@@ -50,7 +50,7 @@
     
         ?>
 <div class="container">
-    <P><?php $this->flashSession->output() ?></p>
+    <P><?php $this->flash->output() ?></p>
     <?php foreach ($tab1 as $value1): ?>
 
     <form class="form-signin" method="post" action="<?= $this->url->get("entreprise/updateEnt")?>" enctype="multipart/form-data">
@@ -111,7 +111,7 @@
 </div>
 <?php
     }else{
-        $this->flashSession->error("Connecter vous");
+        $this->flash->error("Connecter vous");
                 return $this->response->redirect($this->url->getBaseUri() . "index", true);
     }
         

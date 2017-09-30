@@ -158,7 +158,7 @@
     endforeach;
     
     }else{
-        $this->flashSession->error("Connecter vous");
+        $this->flash->error("Connecter vous");
                 return $this->response->redirect($this->url->getBaseUri() . "index", true);
     }
         

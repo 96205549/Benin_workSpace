@@ -34,7 +34,7 @@ class particulierController extends Controller {
             $this->session->set('id_part', $req->getId_part());
             return $this->response->redirect($this->url->getBaseUri() . "particulier/profil", true);
         } else {
-            $this->flashSession->error("Echec d'authentification");
+            $this->flash->error("Echec d'authentification");
             return $this->response->redirect($this->url->getBaseUri() . "index", true);
         }
     }
@@ -73,7 +73,7 @@ class particulierController extends Controller {
         // Store and check for errors
 
         if ($success) {
-            $this->flashSession->success("Enregistrement effectuer avec succès");
+            $this->flash->success("Enregistrement effectuer avec succès");
             $this->response->redirect($this->url->getBaseUri() . "particulier/inscriptionPart", true);
         } else {
             $this->flash->error("Enregistrement non effectuer veuiller vérifier le formulaire");
