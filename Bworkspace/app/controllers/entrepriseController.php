@@ -14,9 +14,9 @@
 use Phalcon\Mvc\Controller;
 
 class entrepriseController extends controller {
-
     //put your code here
-    public function indexAction() {
+    public function indexAction()
+    {
         
     }
 

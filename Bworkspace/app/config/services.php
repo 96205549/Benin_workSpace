@@ -1,4 +1,3 @@
-
 <?php
 
 use Phalcon\Mvc\View;
@@ -111,7 +110,6 @@ $di->setShared('session', function () {
 
     return $session;
 });
-
 
 $di->set('uploadcv', function()  {
     $config = $this->getConfig();

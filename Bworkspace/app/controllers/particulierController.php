@@ -1,6 +1,7 @@
 <?php
 
 use Phalcon\Mvc\Controller;
+use Phalcon\Paginator\Adapter\Model as PaginatorModel;
 
 class particulierController extends Controller {
 
@@ -9,7 +10,20 @@ class particulierController extends Controller {
     }
 
     public function particulierAction() {
-        
+        $currentPage = (int) $_GET["page"];
+// The data set to paginate
+        $ets = particulier::find();
+// Create a Model paginator, show 10 rows by page starting from $currentPage
+        $paginator = new PaginatorModel(
+                [
+            "data" => $ets,
+            "limit" => 8,
+            "page" => $currentPage,
+                ]
+        );
+// Get the paginated results
+        $page = $paginator->getPaginate();
+        $this->view->page = $page;
     }
 
     public function inscriptionPartAction() {
@@ -17,7 +31,11 @@ class particulierController extends Controller {
     }
 
     public function profilAction() {
-        
+        $id = $this->session->get('id_part');
+        //die(var_dump($id));
+        $req = particulier::findById_part($id);
+        //die(var_dump($req));
+        $this->view->tab = $req;
     }
 
     public function loginAction() {
@@ -25,13 +43,15 @@ class particulierController extends Controller {
         $password = sha1($this->request->getPost("password"));
         $req = particulier::findFirst([
                     "mail = :mail:  AND password = :password:", "bind" => [
-                        "mail" => $login,
-                        "password" => $password
+                        'mail' => $login,
+                        'password' => $password
                     ]
         ]);
+        //die(var_dump($req));
         if ($req) {
 
             $this->session->set('id_part', $req->getId_part());
+            //die(var_dump($_SESSION['id']));
             return $this->response->redirect($this->url->getBaseUri() . "particulier/profil", true);
         } else {
             $this->flash->error("Echec d'authentification");
@@ -119,8 +139,8 @@ class particulierController extends Controller {
                                     }
                                 }
                             }
-                            $req->update(['nom' => $nom, 'prenom' => $prenom, 'diplome' => $diplome, 'an' => $an, 'profession' => $profession, 'region' => $region , 'cv' => $name_file]);                          
-                        } 
+                            $req->update(['nom' => $nom, 'prenom' => $prenom, 'diplome' => $diplome, 'an' => $an, 'profession' => $profession, 'region' => $region, 'cv' => $name_file]);
+                        }
                     }
                 } else {
 
@@ -128,6 +148,14 @@ class particulierController extends Controller {
                 }
             }
         }
+    }
+
+    public function deconnectionAction() {
+
+        $this->session->remove('id_part');
+        $this->session->destroy();
+
+        return $this->response->redirect($this->url->getBaseUri() . "index", true);
     }
 
 }

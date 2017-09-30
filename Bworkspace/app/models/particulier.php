@@ -19,6 +19,7 @@ class particulier extends Model {
     //put your code here
     private $id_part;
     private $nom;
+    private $prenom;
     private $password;
     private $telephone;
     private $cv;
@@ -30,8 +31,15 @@ class particulier extends Model {
     function getId_part() {
         return $this->id_part;
     }
+    function getPrenom() {
+        return $this->prenom;
+    }
 
-    function getNom() {
+    function setPrenom($prenom) {
+        $this->prenom = $prenom;
+    }
+
+        function getNom() {
         return $this->nom;
     }
 
