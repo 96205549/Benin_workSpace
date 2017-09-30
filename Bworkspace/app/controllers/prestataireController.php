@@ -12,6 +12,7 @@
  * @author as-andchanou
  */
 use Phalcon\Mvc\Controller;
+use Phalcon\Paginator\Adapter\Model as PaginatorModel;
 
 class prestataireController extends Controller {
 
@@ -20,7 +21,56 @@ class prestataireController extends Controller {
     }
 
     public function prestatairesAction() {
-        
+        $req = categori::find();
+        $this->view->tab1 = $req;
+               if ($this->request->isPost()) {
+            $categori = $this->request->getPost("categori");
+
+            $sqlPart = "";
+            $sqlData = [];
+
+            foreach ($categori as $key => $value) {
+                // $sqlPart.= (!empty($sqlPart) ? " or ":""). "id_cat=:id_cat$key: " ;
+                //$sqlData["id_cat$key"]=$value;
+                $sqlPart .= (!empty($sqlPart) ? "," : "") . "?$key";
+            }
+            //die(var_dump($sqlPart));
+            $req1 = categoriser_prest::find(array('id_cat IN (' . $sqlPart . ')', 'bind' => $categori));
+            $paginator = new PaginatorModel(
+                    [
+                "data" => $req1,
+                "limit" => 1,
+                "page" => $currentPage,
+                    ]
+            );
+           // die(var_dump($req1));
+// Get the paginated results
+            $page = $paginator->getPaginate();
+            $this->view->page = $page;
+            $rech=true;
+            $this->view->rech = $rech;
+            //$req1= categoriser::find([$sqlPart, "bind" => $sqlData]);
+            //die(var_dump($req1));
+        } else{
+            $currentPage = (int) $_GET["page"];
+// The data set to paginate
+$ets = prestataire::find();
+// Create a Model paginator, show 10 rows by page starting from $currentPage
+$paginator = new PaginatorModel(
+[
+"data" => $ets,
+"limit" => 1,
+"page" => $currentPage,
+]
+);
+// Get the paginated results
+$page = $paginator->getPaginate();
+
+$this->view->page = $page;
+$rech=false;
+$this->view->rech = $rech;
+
+    }
     }
 
     public function inscriptionPrestAction() {
@@ -96,6 +146,21 @@ class prestataireController extends Controller {
     }
 
     public function profilAction() {
+        if ($this->session->has('id_prest')){
+         $id = $this->session->get('id_prest');
+            // die(var_dump($id));
+            $req = prestataire::findById_prest($id);
+            $this->view->tab = $req;
+        
+         }elseif(isset($_GET["id"])){
+            
+            $id = $_GET["id"];
+             
+            // die(var_dump($id));
+            $req = prestataire::findById_prest($id);
+            $this->view->tab = $req;
+            //die( var_dump($req));
+    }
         
     }
 
@@ -174,7 +239,7 @@ class prestataireController extends Controller {
                         } elseif (!move_uploaded_file($temp_name, $this->uploadprest . $name_file)) {
                             exit("Impossible de copier le fichier dans $content_dir");
                         }
-                        $logo = $name_file;
+                        $logo = "/public/uploadprest/".$name_file;
                         //die(var_dump($logo));
                         // die(var_dump($type));
                         // Move the file into the application

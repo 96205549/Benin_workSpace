@@ -12,6 +12,7 @@
         <link href="<?= $this->url->getBaseURI ();?>public/css/now-ui-kit.css?v=1.1.0" rel="stylesheet">
         <link href="<?= $this->url->getBaseURI ();?>public/css/demo.css" rel="stylesheet">
 
+
     </head>
     <body>
     <style>
@@ -35,19 +36,22 @@
         background-size: cover;
     }
 </style>
+<a href="index.volt"></a>
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <a class="navbar-brand" href="<?= $this->url->get("index")?>">Bworkspace</a>
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item navbar-right active">
-                <a class="nav-link" href="<?= $this->url->get("index")?>">Entreprises</a>
+                <a class="nav-link" href="<?= $this->url->get("")?>">Entreprises</a>
             </li>
 
             <li class="nav-item navbar-right active">
                 <a class="nav-link" href="<?= $this->url->get("particulier/particulier")?>">Particuliers</a>
             </li>
-
+            <li class="nav-item navbar-right active">
+                <a class="nav-link" href="<?= $this->url->get("prestataire/prestataires")?>">Prestataires</a>
+            </li>
             <li class="nav-item navbar-right active">
                 <a class="nav-link" href="<?= $this->url->get("offre/offre")?>">Offres d'emploi</a>
             </li>
@@ -59,7 +63,13 @@
             <li class="nav-item navbar-right active">
             </li>
             <li class="nav-item">
-                <a class="btn btn-info" href="<?= $this->url->get("particulier/profil")?>" role="button">Profil</a>
+                <a class="btn btn-info" href="<?php
+                                if ($this->session->has('id_ent')){
+                                     echo $this->url->get("entreprise/profil");
+                        }elseif($this->session->has('id_prest')){
+                            echo $this->url->get("prestataire/profil");}
+                        elseif($this->session->has('id_part'))
+                                {echo $this->url->get("particulier/profil");}?>" role="button">Profil</a>
             </li>
 
             <li class="nav-item">

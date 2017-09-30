@@ -4,139 +4,77 @@
     <h1 class="my-4">Bienvenue sur BworkSpace -
         <small>Les Prestataires</small>
     </h1>
+
+    <P><?php $this->flash->output() ?></p>
+
     <p>
         <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#bof" aria-expanded="false" aria-controls="collapseExample">
-            + Domaines
+            + Catégories
         </button>
     </p>
-    <div class="collapse" id="bof" style=" border-radius:10px; padding:20px;">
+    <div class="collapse" id="bof">
+        <form class="form-signin" method="post" action="<?= $this->url->get("prestataire/prestataires") ?>">
+            <table>
+                <?php
+                foreach ($tab1 as $value):
+                    ?>    
 
-        <input type="checkbox" id="" name="" Value="Programmation"> Programmation
-        </br>		
-        <input type="checkbox" id="" name="" Value="Commerciale" checked> Commerciale
-        </br></br>
-        <button class="btn btn-primary" type="button">Trier</button>
-        </br>
+                    <td>
+
+
+                        <input type="checkbox" name="categori[]" value="<?= $value->getId_cat() ?>">
+                    <th><?= $value->getNom() ?></th>
+                    </td>
+
+                    <?php
+                endforeach;
+                ?>   
+            </table>
+
+            <button class="btn btn-primary" type="submit">Trier</button>
+        </form>
+
     </div>
-    </br>
+    <br>
+     <?php foreach ($page->items as $item):
+    if(!$rech){
+    ?>
 
-
-    <div class="container marketing">
-
-        <style>
-            .img-circle{border-radius:50%}hr{margin-top:20px;margin-bottom:20px;border:0;border-top:1px solid #eee}
-        </style>
-
-        <!-- Three columns of text below the carousel -->
-        <div class="row">
-
-            <div class="col-lg-3 col-sm-6">
-                <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-                <h2>Dossou Kyriel</h2> 
-                <p>bla bal bala</p>
-                <p><a class="btn btn-primary" href="#" data-toggle="modal" data-target="#exampleModal" role="button">Voir details &raquo;</a></p>
-
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Informations</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                bla bal balabla bal balabla bal balabla bal balabla bal balabla bal bala ...
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>  
-            </div><!-- /.col-lg-4 -->
-
-            <div class="col-lg-3 col-sm-6">
-                <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-                <h2>Dossou Kyriel</h2> 
-                <p>bla bal bala</p>
-                <p><a class="btn btn-primary" href="#" data-toggle="modal" data-target="#exampleModal" role="button">Voir details &raquo;</a></p>
-
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Informations</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                bla bal balabla bal balabla bal balabla bal balabla bal balabla bal bala ...
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>  
-            </div><!-- /.col-lg-4 -->
-
-            <div class="col-lg-3 col-sm-6">
-                <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-                <h2>Dossou Kyriel</h2> 
-                <p>bla bal bala</p>
-                <p><a class="btn btn-primary" href="#" data-toggle="modal" data-target="#exampleModal" role="button">Voir details &raquo;</a></p>
-
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Informations</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                bla bal balabla bal balabla bal balabla bal balabla bal balabla bal bala ...
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>  
-            </div><!-- /.col-lg-4 -->
-
-            <div class="col-lg-3 col-sm-6">
-                <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-                <h2>Dossou Kyriel</h2> 
-                <p>bla bal bala</p>
-                <p><a class="btn btn-primary" href="#" data-toggle="modal" data-target="#exampleModal" role="button">Voir details &raquo;</a></p>
-
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Informations</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                bla bal balabla bal balabla bal balabla bal balabla bal balabla bal bala ...
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>  
-            </div><!-- /.col-lg-4 -->
-        </div><!-- /.row -->
+    <div class="row">
+        <div class="col-lg-3 col-sm-6 portfolio-item">
+            <div class="card h-100">
+                <a href="#"><img class="card-img-top" src="<?= $this->url->get($item->getLogo()) ?>" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="#"><?= $item->getNom() ?></a>
+                    </h4>
+                    <p class="card-text"><?= $item->getDescription() ?></p>
+                    <a class="btn btn-primary" href="<?= $this->url->getBaseUri() . "prestataire/profil" ."?id=".$item->getId_prest() ?>">Voir details</a>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+<?php }else { ?>
+    <div class="row">
+        <div class="col-lg-3 col-sm-6 portfolio-item">
+            <div class="card h-100">
+                <a href="#"><img class="card-img-top" src="<?= $this->url->get($item->prestataire->getLogo()) ?>" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="#"><?= $item->prestataire->getNom() ?></a>
+                    </h4>
+                    <p class="card-text"><?= $item->prestataire->getDescription() ?></p>
+                    <a class="btn btn-primary" href="<?= $this->url->getBaseUri() . "prestataire/profil" ."?id=".$item->prestataire->getId_prest() ?>">Voir details</a>
+                </div>
+            </div>
+        </div>
+    </div><?php }endforeach; ?>         
+    <br><br>
+    <div class="btn-group">
+        <button class="btn"><a href="<?= $this->url->getBaseUri() . "prestataire/prestataires" ?>">First</a></button>
+        <button class="btn"><a href="<?= $this->url->getBaseUri() . "prestataire/prestataires" . "?page=" . $page->before ?>">Previous</a></button>
+        <button class="btn"><a href="<?= $this->url->getBaseUri() . "prestataire/prestataires" . "?page=" . $page->next ?>">Next</a></button>
+        <button class="btn"><a href="<?= $this->url->getBaseUri() . "prestataire/prestataires" . "?page=" . $page->last ?>">Last</a></button>
+    </div>
+    <br>
+    <?php echo "You are in page ", $page->current, " of ", $page->total_pages; ?>

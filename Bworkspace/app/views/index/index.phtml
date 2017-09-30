@@ -5,8 +5,8 @@
     <h1 class="my-4">Bienvenue sur BworkSpace -
         <small>Les Entreprises</small>
     </h1>
-    
-    <P><?php $this->flashSession->output() ?></p>
+
+    <P><?php $this->flash->output() ?></p>
 
     <p>
         <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#bof" aria-expanded="false" aria-controls="collapseExample">
@@ -14,90 +14,68 @@
         </button>
     </p>
     <div class="collapse" id="bof">
+        <form class="form-signin" method="post" action="<?= $this->url->get("index") ?>">
+            <table>
+                <?php
+                foreach ($tab1 as $value):
+                ?>    
 
-        <input type="checkbox" id="" name="" Value="Programmation"> Programmation
-        <br>
-        <input type="checkbox" id="" name="" Value="Commerciale" checked> Commerciale
-        <br>
-        <br>
-        <button class="btn btn-primary" type="button">Trier</button>
+                <td>
+
+
+                    <input type="checkbox" name="categori[]" value="<?= $value->getId_cat() ?>">
+                <th><?= $value->getNom() ?></th>
+                </td>
+
+                <?php
+                endforeach;
+                ?>   
+            </table>
+
+            <button class="btn btn-primary" type="submit">Trier</button>
+        </form>
         <br>
     </div>
     <br>
+    <?php foreach ($page->items as $item):
+    if(!$rech){
+    ?>
 
     <div class="row">
         <div class="col-lg-3 col-sm-6 portfolio-item">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                <a href="#"><img class="card-img-top" src="<?= $this->url->get($item->getLogo()) ?>" alt=""></a>
                 <div class="card-body">
                     <h4 class="card-title">
-                        <a href="#">Entreprise 1</a>
+                        <a href="#"><?= $item->getNom() ?></a>
                     </h4>
-                    <p class="card-text">bla bala bala</p>
-                    <a class="btn btn-primary" href="#">Voir details</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-sm-6 portfolio-item">
-            <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <a href="#">Entreprise 2</a>
-                    </h4>
-                    <p class="card-text">blabla</p>
-                    <a class="btn btn-primary" href="#">Voir details</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-sm-6 portfolio-item">
-            <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <a href="#">Entreprise 3</a>
-                    </h4>
-                    <p class="card-text">bla blab bla</p>
-                    <a class="btn btn-primary" href="#">Voir details</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-sm-6 portfolio-item">
-            <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <a href="#">Entreprise 4</a>
-                    </h4>
-                    <p class="card-text">bla bla bla</p>
-                    <a class="btn btn-primary" href="#">Voir details</a>
-                </div>
-            </div>
-        </div>
-        <br/>
-        <div class="col-lg-3 col-sm-6 portfolio-item">
-            <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <a href="#">Entreprise 5</a>
-                    </h4>
-                    <p class="card-text">bla bal bla</p>
-                    <a class="btn btn-primary" href="#">Voir details</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-sm-6 portfolio-item">
-            <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <a href="#">Entreprise 6</a>
-                    </h4>
-                    <p class="card-text">bla bla bla</p>
-                    <a class="btn btn-primary" href="#">Voir details</a>
+                    <p class="card-text"><?= $item->getDescription() ?></p>
+                    <a class="btn btn-primary" href="<?= $this->url->getBaseUri() . "entreprise/profil" ."?id=".$item->getId_ent() ?>">Voir details</a>
                 </div>
             </div>
         </div>
     </div>
-</div>
+<?php }else { ?>
+    <div class="row">
+        <div class="col-lg-3 col-sm-6 portfolio-item">
+            <div class="card h-100">
+                <a href="#"><img class="card-img-top" src="<?= $this->url->get($item->entreprise->getLogo()) ?>" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="#"><?= $item->entreprise->getNom() ?></a>
+                    </h4>
+                    <p class="card-text"><?= $item->entreprise->getDescription() ?></p>
+                    <a class="btn btn-primary" href="<?= $this->url->getBaseUri() . "entreprise/profil" ."?id=".$item->entreprise->getId_ent() ?>">Voir details</a>
+                </div>
+            </div>
+        </div>
+    </div><?php }endforeach; ?>      
+    <br><br>
+    <div class="btn-group">
+        <button class="btn"><a href="<?= $this->url->getBaseUri() . "index/index" ?>">First</a></button>
+        <button class="btn"><a href="<?= $this->url->getBaseUri() . "index/index" ."?page=". $page->before ?>">Previous</a></button>
+        <button class="btn"><a href="<?= $this->url->getBaseUri() . "index/index" . "?page=" . $page->next ?>">Next</a></button>
+        <button class="btn"><a href="<?= $this->url->getBaseUri() . "index/index" . "?page=" . $page->last ?>">Last</a></button>
+    </div>
+    <br>
+<?php echo "You are in page ", $page->current, " of ", $page->total_pages; ?>

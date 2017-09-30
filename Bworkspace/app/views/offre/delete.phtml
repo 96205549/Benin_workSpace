@@ -1,13 +1,15 @@
 <style>
-#red{
-            position:absolute;
-            margin-top:40px; 
-            margin-left:10px; 
-        }
-        #espace{
+    #red{
+        position:absolute;
+        margin-top:40px; 
+        margin-left:10px; 
+    }
+    #espace{
 
-            margin:30px; 
-        }
+        margin-left:20px; 
+        margin-right: 20px;
+        margin-top: 25px;
+    }
 </style>
 <div class="container" >
     <P><?php $this->flash->output() ?></p>
@@ -26,56 +28,51 @@
                 <input type="date" class="form-control date-picker" value="10/05/2017" name="expiration"data-datepicker-color="primary">
             </div>
         </div>
-        
+
         <button class="btn btn-lg btn-primary btn-block" type="submit">Suivant</button>
     </form>
     </br></br>
     <form id="red" method="post" action="delete">
-
+        
         <?php
-        foreach ($tab as $value) {
+        foreach ($page->items as $item) {
 
-            echo '<input id ="espace" type="checkbox" name="id_of[]" value=' . $value->getId_of() . '>' . '<br/>';
+            echo '<input id ="espace" type="checkbox" name="id_of[]" value=' . $item->getId_of() . '>' . '<br/>';
         }
         ?>
         <br>
         <a href=""><button type="submit" class="btn btn-danger" data-target>Supprimer-selection</button></a>
     </form>
-    <table class="table table-striped table-inverse">
-        <thead>
+     <table class="table table-striped table-inverse">
+        <tr>
+            <th>#</th>
+            <th>POSTE</th>
+            <th>DIPLOME</th>
+            <th>DUREE</th>
+            <th>EXPIRATIONS</th>
+        </tr>
+        <?php foreach ($page->items as $item) { ?>
             <tr>
-                <th>#</th>
-                <th>POSTE</th>
-                <th>DIPLOME</th>
-                <th>DUREE</th>
-                <th>EXPIRATIONS</th>
+                <td></td>
+                 <td><?= $item->getPoste() ?></td>
+
+                        <td><?= $item->getDiplome() ?></td>
+                        <td><?= $item->getDuree() ?></td>
+                        <td><?= strftime("%x", $item->getExpiration()) ?></td>
+                        <td><a href=<?= "delete?id_url=" . $item->getId_of() ?> ><button type="submit" class="btn btn-danger "  data-target data-confirm="Etes-vous certain de vouloir supprimer"><span class="glyphicon glyphicon-remove"></span></button></a>
+                        </td>
+
+
+
+                        <td><a href=<?= "update?id_url=" . $item->getId_of()  ?>><button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></button></a></td>
             </tr>
-        </thead>
-
-        <tbody>
-
-            <?php
-            foreach ($tab as $value)
-                :
-                ?>
-
-                <tr>
-                    <td> </td>
-                    <td><?= $value->getPoste() ?></td>
-
-                    <td><?= $value->getDiplome() ?></td>
-                    <td><?= $value->getDuree() ?></td>
-                    <td><?= strftime("%x", $value->getExpiration()) ?></td>
-                    <td><a href=<?= "delete?id_url=" . $value->getId_of() ?> ><button type="submit" class="btn btn-danger "  data-target data-confirm="Etes-vous certain de vouloir supprimer"><span class="glyphicon glyphicon-remove"></span>Suprimer</button></a>
-                    </td>
-
-
-
-                    <td><a href=<?= "update?id_url=" . $value->getId_of() ?>><button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit">Modifier</button></a></td>
-
-                </tr>
-
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+            <?php } ?>
+        </table>
+    <br><br><br>
+        <a href="<?=$this->url->getBaseUri() . "offre/delete"?>">First</a>
+        <a href="<?=$this->url->getBaseUri() . "offre/delete?page=".$page->before ?>">Previous</a>
+        <a href="<?=$this->url->getBaseUri() . "offre/delete"."?page=".$page->next ?>">Next</a>
+        <a href="<?=$this->url->getBaseUri() . "offre/delete"."?page=".$page->last ?>">Last</a>
+        <?php echo "You are in page ", $page->current, " of ", $page->total_pages; ?>
+        
 </div>
