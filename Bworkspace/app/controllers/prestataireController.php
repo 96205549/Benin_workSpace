@@ -19,7 +19,7 @@ class prestataireController extends Controller {
         
     }
 
-    public function prestataireAction() {
+    public function prestatairesAction() {
         
     }
 

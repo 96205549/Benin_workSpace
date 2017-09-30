@@ -28,7 +28,12 @@
         margin-right: 10px;
         margin-left: 10px;
     }
-
+    
+    body {
+        background-image: url('<?= $this->url->get("public/img/blurred-image-1.jpg")?>');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 </style>
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -99,31 +104,31 @@
                 </div>
                 <!-- /.col-lg-4 -->
             </form>
-
-        <div class="container">
-      
 <div class="col-lg-6" class="nav justify-content-end">
     <div class="input-group">
       <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for...">
       <div>
-      <span class="input-group-btn">
-        <button type="button" class="btn btn-primary "><span class="glyphicon glyphicon-search">Search</span></a>
-      </span>
+        <span class="input-group-btn">
+            <button type="button" class="btn btn-primary "><span class="glyphicon glyphicon-search">Search</span></a>
+        </span>
       </div>
     </div>
-  </div>
-
-        </div>
+</div>
             {{ content() }}
         </div>
-<footer>
+    
+    <script src="<?= $this->url->getBaseURI ();?>public/vendor/jquery/jquery.min.js" type="text/javascript"></script>
+    <script src="<?= $this->url->getBaseURI ();?>public/vendor/popper/popper.min.js" type="text/javascript"></script>
+    <script src="<?= $this->url->getBaseURI ();?>public/vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="<?= $this->url->getBaseURI ();?>public/js/js/plugins/bootstrap-switch.js"></script>
+    <script src="<?= $this->url->getBaseURI ();?>public/js/js/plugins/nouislider.min.js" type="text/javascript"></script>
+    <script src="<?= $this->url->getBaseURI ();?>public/js/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
+    <script src="<?= $this->url->getBaseURI ();?>public/js/now-ui-kit.js?v=1.1.0" type="text/javascript"></script>
+    </body>
+    <footer>
       <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Kyrigami 2017</p>
+        <p class="m-0 text-center text-black">Copyright &copy; Kyrigami 2017</p>
       </div>
       <!-- /.container -->
     </footer>
-    <script src="<?= $this->url->getBaseURI ();?>public/vendor/jquery/jquery.min.js"></script>
-    <script src="<?= $this->url->getBaseURI ();?>public/vendor/popper/popper.min.js"></script>
-    <script src="<?= $this->url->getBaseURI ();?>public/vendor/bootstrap/js/bootstrap.min.js"></script>
-    </body>
 </html>
