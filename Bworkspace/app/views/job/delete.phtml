@@ -1,0 +1,90 @@
+<style>
+    #red{
+        position:absolute;
+        margin-top:40px; 
+        margin-left:10px; 
+    }
+    #espace{
+
+        margin-left:20px; 
+        margin-right: 20px;
+        margin-top: 25px;
+    }
+</style>
+<div class="container">
+    <P><?php $this->flashSession->output() ?></p>
+    <div class="float-left">
+        <form method="post" action="<?= $this->url->get("job/ajoutjob") ?>" class="form-signin">
+            <h3 class="form-signin-heading">Ajouter une job</h3> 
+
+            <input type="text" name="poste" class="form-control" placeholder="Poste" required autofocus>
+            <br/>	
+            <input type="text" name="diplome" class="form-control" placeholder="Diplome" required autofocus>
+            <br/>
+            <input type="text" name="duree" class="form-control" placeholder="Durée d'emploiement" required autofocus>
+            <br>
+            <h4>Date d'expiration de l'job</h4>
+            <div class="datepicker-container" class="section section-javascript" id="javascriptComponents">
+                <div class="form-group">
+                    <input type="date" class="form-control date-picker" value="10/05/2017" name="expiration"data-datepicker-color="primary">
+                </div>
+            </div>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Suivant</button>
+        </form>
+    </div>
+    <div class="float-right" >
+        <form id="red" method="post" action="delete">
+
+            <?php
+            foreach ($page->items as $item) {
+
+                echo '<input id ="espace" type="checkbox" name="id_job[]" value=' . $item->getId_job() . '>' . '<br/>';
+            }
+            ?>
+            <br>
+            <a href=""><button type="submit" class="btn btn-danger" data-target>Supprimer-selection</button></a>
+        </form>
+        <table class="table">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>#</th>
+                    <th>POSTE</th>
+                    <th>DIPLOME</th>
+                    <th>DUREE</th>
+                    <th>EXPIRATIONS</th>
+                    <th>SUPPRIMER</th>
+                    <th>MODIFIER</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($page->items as $item) { ?>
+                    <tr>
+                        <td></td>
+                        <td><?= $item->getPoste() ?></td>
+
+                        <td><?= $item->getDiplome() ?></td>
+                        <td><?= $item->getDuree() ?></td>
+                        <td><?= strftime("%x", $item->getExpiration()) ?></td>
+                        <td><a href=<?= "delete?id_url=" . $item->getId_job() ?> ><button type="submit" class="btn btn-danger "  data-target data-confirm="Etes-vous certain de vouloir supprimer"><span class="glyphicon glyphicon-remove"></span></button></a>
+                        </td>
+
+
+
+                        <td><a href=<?= "update?id_url=" . $item->getId_job() ?>><button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></button></a></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+        <br><br>
+        <div class="btn-group">
+            <button class="btn"><a href="<?= $this->url->getBaseUri() . "job/delete" ?>">First</a></button>
+            <button class="btn"><a href="<?= $this->url->getBaseUri() . "job/delete?page=" . $page->before ?>">Previous</a></button>
+            <button class="btn"><a href="<?= $this->url->getBaseUri() . "job/delete" . "?page=" . $page->next ?>">Next</a></button>
+            <button class="btn"><a href="<?= $this->url->getBaseUri() . "job/delete" . "?page=" . $page->last ?>">Last</a></button>
+        </div>
+        <br>
+        <?php echo "You are in page ", $page->current, " of ", $page->total_pages; ?>
+    </div>
+
+</div>

@@ -1,10 +1,11 @@
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
 <?php
-    if ($this->session->has('id_ent'))  {
+    if ($this->session->has('id_ent')|| isset($_GET["id"]))  {
         
-    
+        foreach ($tab as $value):
         ?>
+
 <body class="landing-page sidebar-collapse">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-info fixed-top navbar-transparent " color-on-scroll="400">
@@ -17,11 +18,13 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-header">Parametres</a>
+                    <?php if ($this->session->has('id_ent')):  ?>
                     <a class="dropdown-item" href="<?= $this->url->get("entreprise/updateEnt")?>">Mise à jour du compte</a>
+                    <?php endif; ?>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Aller au Site web</a>
+                    <a class="dropdown-item" href="<?= $value->getSiteweb()?>">Aller au Site web</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Supprimer le compte</a>
+                    
                 </div>
             </div>
             <div class="navbar-translate">
@@ -32,6 +35,7 @@
                     <span class="navbar-toggler-bar bar3"></span>
                 </button>
             </div>
+            <?php if ($this->session->has('id_ent')):  ?>
             <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="../assets/img/blurred-image-1.jpg">
                 <ul class="navbar-nav">
 
@@ -42,7 +46,7 @@
                         </a>
                     </li>
                      <li class="nav-item">
-                        <a class="nav-link" rel="tooltip" title="Voir liste des offres soumissent" data-placement="bottom" href="<?= $this->url->get("job/ajoutjob")?>" target="_blank">
+                        <a class="nav-link" rel="tooltip" title="Voir liste des offres soumissent" data-placement="bottom" href="<?= $this->url->get("job/delete")?>" target="_blank">
                             <p class="">Nos Jobs De Vacance</p>
                         </a>
                     </li>
@@ -58,26 +62,28 @@
 
                 </ul>
             </div>
+            <?php endif; ?>
         </div>
     </nav>
     <!-- End Navbar -->
     <div class="wrapper">
         <div class="page-header page-header-small">
-            <div class="page-header-image" data-parallax="true" style="background-image: url('../assets/img/bg6.jpg');">
+            <?php //var_dump($this->uploadEnt.$value->getLogo());?>
+            <div class="page-header-image" data-parallax="true" style='background-image: url("<?="http://".$_SERVER['SERVER_NAME'].$this->url->get($value->getLogo())?>");'>
             </div>
             <div class="container">
                 <div class="content-center">
-                    <h1 class="title">Nom de l'entreprise</h1>
+                    <h1 class="title"><?=$value->getNom()?></h1>
                     <div class="text-center">
 
                         <style>
                             .img-circle{border-radius:50%}hr{margin-top:20px;margin-bottom:20px;border:0;border-top:1px solid #eee}
                         </style>
 
-                        <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-                        <h6 class="title">Adresse</h6>
-                        <h6 class="title">Telephone</h6>
-                        <h6 class="title">Region</h6>
+                        <img class="img-circle" src="<?=$this->url->get($value->getLogo())?>" alt="Generic placeholder image" width="140" height="140">
+                        <h6 class="title"><?=$value->getAdresse()?></h6>
+                        <h6 class="title"><?=$value->getTelephone()?></h6>
+                        <h6 class="title"><?=$value->getRegion()?></h6>
 
                     </div>
                 </div>
@@ -88,7 +94,7 @@
                 <div class="row">
                     <div class="col-md-8 ml-auto mr-auto text-center">
                         <h2 class="title">Qui sommes nous?</h2>
-                        <h5 class="description">According to the National Oceanic and Atmospheric Administration, Ted, Scambos, NSIDClead scentist, puts the potentially record low maximum sea ice extent tihs year down to low ice extent in the Pacific and a late drop in ice extent in the Barents Sea.</h5>
+                        <h5 class="description"><?=$value->getDescription()?></h5>
                     </div>
                 </div>
                 <div class="separator separator-primary"></div>
@@ -149,6 +155,8 @@
 
 </html>
 <?php
+    endforeach;
+    
     }else{
         $this->flash->error("Connecter vous");
                 return $this->response->redirect($this->url->getBaseUri() . "index", true);

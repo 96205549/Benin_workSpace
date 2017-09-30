@@ -1,0 +1,74 @@
+<div class="container">
+    <?php
+    //session_start();
+    if ($this->session->has('id_ent')) {
+        ?>
+
+        </br>
+
+        <?php
+        if (isset($tab)) :
+
+            //die(var_dump($tab));
+
+            foreach ($tab as $value) :
+                ?>
+
+                <form method="post" action="<?= $this->url->get("job/update")?>" class="form-signin">
+                    <h1 class="form-signin-heading">OFFRE</h1>
+                    </br>
+                    <label for="inputEmail" class="sr-only">poste</label>
+                    <input type="text" class="form-control" value=<?= $value->getPoste() ?>  name="poste" required autofocus>
+
+                    </br>
+                    <label for="inputEmail" class="sr-only">diplome</label>
+                    <input type="text" class="form-control" value=<?= $value->getDiplome() ?>  name="diplome" required autofocus>
+
+                    </br>
+                    <input type="hidden" name="id" value=<?= $value->getId_job() ?>>
+                    <label for="inputEmail" class="sr-only">duree</label>
+                    <input type="text" class="form-control" value=<?= $value->getDuree() ?>  name="duree" required autofocus>
+
+                    </br>
+                    <h4>Date d'expiration de l'job</h4>
+                    <div class="datepicker-container" class="section section-javascript" id="javascriptComponents">
+                        <div class="form-group">
+                            <input type="date" class="form-control date-picker" value=<?= strftime("%x", $value->getExpiration()) ?> name="expiration"data-datepicker-color="primary">
+                        </div>
+                    </div>
+
+                    </br>
+
+
+
+                    <input class="btn btn-lg btn-info btn-block" type="submit" value="MODIFIER">
+
+
+
+                </form> </br></br>';
+
+
+            <?php endforeach; ?>
+
+
+
+        <?php endif; ?>
+
+
+
+
+        </br></br>
+
+
+
+
+
+
+    </div>	
+    </br>
+    <?php
+}else {
+
+    return $this->response->redirect($this->url->getBaseUri() . "default/index", true);
+}
+?>
